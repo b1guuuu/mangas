@@ -4,6 +4,7 @@ import 'package:mangas/src/models/collection.dart';
 import 'package:mangas/src/models/manga.dart';
 import 'package:mangas/src/views/pages/collection.dart';
 import 'package:mangas/src/views/pages/collection_volumes.dart';
+import 'package:mangas/src/views/pages/edit_collection.dart';
 import 'package:mangas/src/views/pages/edit_manga.dart';
 import 'package:mangas/src/views/pages/mangas.dart';
 import 'package:mangas/src/views/pages/missing_collection_volumes.dart';
@@ -67,6 +68,14 @@ class AppWidget extends StatelessWidget {
 
                 return MaterialPageRoute(builder: (context) {
                   return EditMangaPage(manga: manga);
+                });
+              }
+
+              if (settings.name == EditCollectionPage.routeName) {
+                final collection = settings.arguments as Collection;
+
+                return MaterialPageRoute(builder: (context) {
+                  return EditCollectionPage(collection: collection);
                 });
               }
 

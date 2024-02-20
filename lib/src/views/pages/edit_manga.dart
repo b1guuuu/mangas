@@ -30,6 +30,13 @@ class EditMangaPageState extends State<EditMangaPage> {
         TextEditingValue(text: widget.manga.firstVolumeCover));
   }
 
+  @override
+  void dispose() {
+    _titleTxtController.dispose();
+    _coverTxtController.dispose();
+    super.dispose();
+  }
+
   String? _validator(String? value) {
     if (value == null || value.isEmpty) {
       return 'Campo obrigatório';

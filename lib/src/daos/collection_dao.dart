@@ -33,4 +33,11 @@ class CollectionDao {
     }
     return collections;
   }
+
+  Future<void> update(Collection collection) async {
+    var db = await utils_database.openDatabase();
+    await db.update(tableName, collection.toMapWithoutId(),
+        where: 'id = ?', whereArgs: [collection.id]);
+    await utils_database.closeDatabase(db);
+  }
 }

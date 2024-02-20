@@ -3,6 +3,7 @@ import 'package:mangas/src/daos/collection_dao.dart';
 import 'package:mangas/src/models/collection.dart';
 import 'package:mangas/src/views/components/grid_item.dart';
 import 'package:mangas/src/views/pages/collection_volumes.dart';
+import 'package:mangas/src/views/pages/edit_collection.dart';
 
 class CollectionsGrid extends StatelessWidget {
   final List<Collection> collections;
@@ -47,6 +48,17 @@ class CollectionsGrid extends StatelessWidget {
             'O que deseja fazer com esse título?',
           ),
           actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge),
+              child: const Text('Editar'),
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(EditCollectionPage.routeName,
+                        arguments: collection)
+                    .then((value) => Navigator.of(context).pop());
+              },
+            ),
             TextButton(
               style: TextButton.styleFrom(
                 textStyle: Theme.of(context).textTheme.labelLarge,

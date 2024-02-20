@@ -1,9 +1,9 @@
 class Collection {
   late num id;
-  final String status;
+  String status;
   final num mangaId;
   final String mangaTitle;
-  final String firstVolumeCover;
+  String firstVolumeCover;
 
   Collection(
       {required this.id,
