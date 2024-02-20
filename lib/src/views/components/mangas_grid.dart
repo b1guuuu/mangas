@@ -7,6 +7,7 @@ import 'package:mangas/src/models/collection_volume.dart';
 import 'package:mangas/src/models/manga.dart';
 import 'package:mangas/src/models/volume.dart';
 import 'package:mangas/src/views/components/grid_item.dart';
+import 'package:mangas/src/views/pages/edit_manga.dart';
 import 'package:mangas/src/views/pages/volumes.dart';
 
 class MangasGrid extends StatelessWidget {
@@ -95,6 +96,16 @@ class MangasGrid extends StatelessWidget {
                 collection = await collectionDao.insert(collection);
 
                 Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                  textStyle: Theme.of(context).textTheme.labelLarge),
+              child: const Text('Editar'),
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(EditMangaPage.routeName, arguments: manga)
+                    .then((value) => Navigator.of(context).pop());
               },
             ),
             TextButton(

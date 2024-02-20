@@ -1,9 +1,9 @@
 class Manga {
   late num id;
-  final String title;
+  String title;
   final String status;
   final String publisher;
-  final String firstVolumeCover;
+  String firstVolumeCover;
   final num totalVolumes;
 
   Manga(
