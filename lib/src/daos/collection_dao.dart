@@ -25,7 +25,7 @@ class CollectionDao {
 
   Future<List<Collection>> getAll() async {
     var db = await utils_database.openDatabase();
-    var result = await db.query(tableName);
+    var result = await db.query(tableName, orderBy: 'mangaTitle');
     await utils_database.closeDatabase(db);
     List<Collection> collections = [];
     for (var collection in result) {
